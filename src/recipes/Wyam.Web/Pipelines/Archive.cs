@@ -107,7 +107,7 @@ namespace Wyam.Web.Pipelines
                         string indexTitle = settings.Title?.Invoke<string>(doc, ctx) ?? string.Empty;
                         return doc.Get<int>(Keys.CurrentPage) <= 1
                             ? indexTitle
-                            : (string.IsNullOrEmpty(indexTitle) ? $"Page {doc[Keys.CurrentPage]}" : $"{indexTitle} (Page {doc[Keys.CurrentPage]})");
+                            : (string.IsNullOrEmpty(indexTitle) ? $"{doc[Keys.CurrentPage]}" : $"{indexTitle} ({doc[Keys.CurrentPage]})");
                     });
                     if (settings.TakePages != null)
                     {

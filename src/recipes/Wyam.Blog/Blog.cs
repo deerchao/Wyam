@@ -132,7 +132,7 @@ namespace Wyam.Blog
                     TemplateFile = ctx => "_Archive.cshtml",
                     Layout = "/_Layout.cshtml",
                     PageSize = ctx => ctx.Get(BlogKeys.ArchivePageSize, int.MaxValue),
-                    Title = (doc, ctx) => "Archive",
+                    Title = (doc, ctx) => doc.WithoutSettings.Get(BlogKeys.Title, "Archive"),
                     RelativePath = (doc, ctx) => $"{ctx.DirectoryPath(BlogKeys.PostsPath, ".").FullPath}"
                 }));
 
